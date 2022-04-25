@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MapSupport/Map.gd" type="Script" id=1]
+
+[node name="Map" type="Node2D"]
+position = Vector2( 1, -1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Tiles or at least their client side representation are added as childs under the ysort node"
+}
+
+[node name="Tiles" type="YSort" parent="."]
+position = Vector2( 832, 256 )

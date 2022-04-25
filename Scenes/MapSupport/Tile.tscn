@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Tiles/hex.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/MapSupport/Tile.gd" type="Script" id=2]
+
+[node name="Tile" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileArea" type="Area2D" parent="."]
+modulate = Color( 0.333333, 0.0627451, 0.0627451, 1 )
+position = Vector2( 153, -53 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileArea"]
+polygon = PoolVector2Array( 0, 0, 65, -31, 43, -76, -51, -88, -116, -55, -94, -11 )
+
+[node name="Terrain" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 128, -256 )
+
+[connection signal="input_event" from="TileArea" to="." method="_on_TileArea_input_event"]
+[connection signal="mouse_entered" from="TileArea" to="." method="_on_TileArea_mouse_entered"]
+[connection signal="mouse_exited" from="TileArea" to="." method="_on_TileArea_mouse_exited"]
